@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="DutchBuddy — AI Learning Assistant untuk Bahasa Belanda">
+  <title>DutchBuddy — AI Learning Assistant untuk Bahasa Belanda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Navigasi DutchBuddy">
+      <div class="brand">
+        <div class="brand-mark">NL</div>
+        <div>
+          <strong>DutchBuddy</strong>
+          <span>AI Learning Assistant</span>
+        </div>
+      </div>
+
+      <nav class="main-nav" aria-label="Menu utama">
+        <button class="nav-item active" data-topic="chat" type="button"><span>Chat</span><small>AI Tutor</small></button>
+        <button class="nav-item" data-topic="grammar" type="button"><span>Grammar</span><small>Tata bahasa</small></button>
+        <button class="nav-item" data-topic="vocabulary" type="button"><span>Vocabulary</span><small>Kosakata</small></button>
+        <button class="nav-item" data-topic="quiz" type="button"><span>Quiz</span><small>Latihan</small></button>
+      </nav>
+
+      <section class="lesson-section">
+        <div class="section-label">Materi Bahasa Belanda</div>
+        <button class="lesson-item" data-prompt="Jelaskan penggunaan artikel de, het, dan een dalam Bahasa Belanda secara bertahap. Berikan aturan praktis dan contoh de hond, het huis, een paard, lalu beri 3 latihan singkat tanpa langsung memberi jawaban." type="button"><span>01</span> Articles</button>
+        <button class="lesson-item" data-prompt="Ajarkan demonstratives dat, dit, die, deze dalam Bahasa Belanda. Jelaskan perbedaan jarak dan jenis kata benda, berikan tabel ringkas dan contoh kalimat, lalu beri latihan." type="button"><span>02</span> Demonstratives</button>
+        <button class="lesson-item" data-prompt="Latih angka Bahasa Belanda dari 1–20, lalu pola puluhan sampai 100 dan 1000. Setelah penjelasan singkat, berikan Number Practice termasuk soal seperti: 42 dalam Bahasa Belanda? Jangan langsung beri jawaban." type="button"><span>03</span> Numbers</button>
+        <button class="lesson-item" data-prompt="Ajarkan pronomina orang Bahasa Belanda: ik, je/jij, u, hij, zij/ze, het, wij/we, jullie. Jelaskan fungsi dan tingkat formalitasnya, kemudian buat Conversation Practice pendek yang memakai pronomina tersebut." type="button"><span>04</span> Pronouns</button>
+      </section>
+
+      <div class="sidebar-footer">
+        <div class="engine-dot"></div>
+        <div>
+          <strong>Gemini 2.5 Flash</strong>
+          <span>AI Learning Engine</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Belajar Bahasa Belanda dengan AI</p>
+          <h1>DutchBuddy</h1>
+          <p>AI Learning Assistant untuk Bahasa Belanda</p>
+        </div>
+        <div class="online-status"><span></span> Online</div>
+      </header>
+
+      <section id="chat-box" class="chat-box" aria-live="polite">
+        <div class="welcome-screen" id="welcome-screen">
+          <div class="welcome-badge">DutchBuddy Learning Space</div>
+          <h2>Mulai belajar Bahasa Belanda.</h2>
+          <p>Tanyakan grammar, kosakata, percakapan, koreksi kalimat, atau gunakan latihan berbasis materi kuliah.</p>
+
+          <div class="quick-topics">
+            <button class="topic-card" data-prompt="Jelaskan perbedaan artikel de, het, dan een. Gunakan contoh de hond, het huis, dan een paard, lalu beri latihan singkat.">
+              <span class="topic-number">01</span>
+              <strong>De / Het / Een</strong>
+              <small>Articles</small>
+            </button>
+            <button class="topic-card" data-prompt="Jelaskan perbedaan dat, dit, die, dan deze dalam Bahasa Belanda dengan contoh sederhana dan latihan.">
+              <span class="topic-number">02</span>
+              <strong>Dat / Dit / Die / Deze</strong>
+              <small>Demonstratives</small>
+            </button>
+            <button class="topic-card" data-prompt="Mulai Number Practice Bahasa Belanda. Ajarkan angka 1–20 lalu tanyakan beberapa angka, termasuk 42, tanpa langsung memberi jawaban.">
+              <span class="topic-number">03</span>
+              <strong>Numbers</strong>
+              <small>1–20, 100, 1000</small>
+            </button>
+            <button class="topic-card" data-prompt="Buat Conversation Practice sederhana dalam Bahasa Belanda yang menggunakan ik, je/jij, u, hij, zij/ze, het, wij/we, dan jullie. Koreksi saya setelah saya menjawab.">
+              <span class="topic-number">04</span>
+              <strong>Pronouns</strong>
+              <small>Conversation Practice</small>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <div id="file-preview" class="file-preview" hidden></div>
+
+      <form id="chat-form" class="composer" autocomplete="off">
+        <button id="image-button" class="icon-button" type="button" aria-label="Upload gambar" title="Analisis gambar">Attach</button>
+        <input id="image-input" type="file" accept="image/*" hidden>
+        <textarea id="user-input" rows="1" placeholder="Tanyakan sesuatu tentang Bahasa Belanda..." aria-label="Pesan"></textarea>
+        <button id="send-button" class="send-button" type="submit" aria-label="Kirim">Send</button>
+      </form>
+      <p class="composer-note">DutchBuddy menggunakan Gemini 2.5 Flash melalui backend Express. API key tidak disimpan di browser.</p>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

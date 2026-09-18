@@ -2,10 +2,11 @@
  * DutchBuddy — frontend client
  * Security: Gemini API key must NEVER be placed in this file.
  *
- * TODO (production): replace localhost with the deployed backend origin,
- * ideally through a deployment config/environment injected at build time.
+ * Express serves this frontend in the full-stack setup, so relative API paths
+ * work locally and in production. For a separately hosted frontend, define
+ * window.DUTCHBUDDY_API_URL before loading this script.
  */
-const API_URL = "http://localhost:3000";
+const API_URL = window.DUTCHBUDDY_API_URL || "";
 
 const chatForm = document.querySelector("#chat-form");
 const userInput = document.querySelector("#user-input");
